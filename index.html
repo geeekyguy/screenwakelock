@@ -60,28 +60,29 @@
   <input type="file" id="bgUpload" accept="image/*">
 </div>
 
-<script src="script6.js"></script>
 <script>
-  const uploadInput = document.getElementById('bgUpload');
-  const uploadContainer = document.getElementById('uploadContainer');
-  const wakeLockButton = document.getElementById('wakeLockButton');
+  window.onload = function () {
+    const uploadInput = document.getElementById('bgUpload');
+    const uploadContainer = document.getElementById('uploadContainer');
+    const wakeLockButton = document.getElementById('wakeLockButton');
 
-  uploadInput.addEventListener('change', function () {
-    const file = this.files[0];
-    if (!file) return;
+    uploadInput.addEventListener('change', function () {
+      const file = this.files[0];
+      if (!file) return;
 
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      document.body.style.backgroundImage = `url('${e.target.result}')`;
-    };
-    reader.readAsDataURL(file);
-  });
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        document.body.style.backgroundImage = `url('${e.target.result}')`;
+      };
+      reader.readAsDataURL(file);
+    });
 
-  wakeLockButton.addEventListener('click', function () {
-    // You can add wake lock activation logic here if needed
-    uploadContainer.style.display = 'none'; // Hide upload section
-  });
+    wakeLockButton.addEventListener('click', function () {
+      uploadContainer.style.display = 'none'; // ✅ Hides the upload section
+    });
+  };
 </script>
 
+<script src="script6.js"></script> <!-- Keep this last -->
 </body>
 </html>
