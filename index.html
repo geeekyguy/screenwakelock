@@ -12,6 +12,7 @@
       margin: 0;
       padding: 0;
     }
+
     button {
       background-color: #363736;
       color: white;
@@ -20,26 +21,39 @@
       text-decoration: none;
       display: inline-block;
       font-size: 16px;
-      margin: 4px 2px;
+      margin: 20px;
       cursor: pointer;
-    }
-    #uploadContainer {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(255, 255, 255, 0.8);
-      padding: 10px;
+      border: none;
       border-radius: 6px;
     }
-    input[type="file"] {
-      margin-top: 5px;
+
+    #uploadContainer {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 10px 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    #uploadContainer label {
+      font-size: 14px;
+      color: #000;
+      font-weight: bold;
+    }
+
+    #bgUpload {
+      margin-top: 6px;
+      width: 100%;
     }
   </style>
 </head>
 <body>
 
 <div id="uploadContainer">
-  <label><strong>Upload background image:</strong></label><br>
+  <label for="bgUpload">Upload Background Image:</label><br>
   <input type="file" id="bgUpload" accept="image/*">
 </div>
 
