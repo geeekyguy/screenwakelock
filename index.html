@@ -13,18 +13,19 @@
       padding: 0;
     }
 
-    button {
+    #wakeLockButton {
       background-color: #363736;
       color: white;
       padding: 15px 25px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
       font-size: 16px;
-      margin: 20px;
       cursor: pointer;
       border: none;
       border-radius: 6px;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
     }
 
     #uploadContainer {
@@ -52,12 +53,12 @@
 </head>
 <body>
 
+<button id="wakeLockButton">Enable Wake Lock</button>
+
 <div id="uploadContainer">
   <label for="bgUpload">Upload Background Image:</label><br>
   <input type="file" id="bgUpload" accept="image/*">
 </div>
-
-<button id="wakeLockButton">Enable Wake Lock</button>
 
 <script src="script5.js"></script>
 <script>
