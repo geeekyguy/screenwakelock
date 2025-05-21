@@ -1,29 +1,65 @@
+<!DOCTYPE html>
 <html>
 <head>
-<title>Screen Lock Wake Demo</title>
-<link rel="icon" type="image/x-icon" href="wolf1.png">
-<style>
-body {
-background-image: url("1339179.jpeg");
-background-repeat: no-repeat;
-background-size: cover;
-font-family: Arial, sans-serif;
-}
-button {
-background-color: #363736;
-color: white;
-padding: 15px 25px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: 16px;
-margin: 4px 2px;
-cursor: pointer;
-}
-</style>
+  <title>Screen Lock Wake Demo</title>
+  <link rel="icon" type="image/x-icon" href="wolf1.png">
+  <style>
+    body {
+      background-image: url("1339179.jpeg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    button {
+      background-color: #363736;
+      color: white;
+      padding: 15px 25px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    #uploadContainer {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 10px;
+      border-radius: 6px;
+    }
+    input[type="file"] {
+      margin-top: 5px;
+    }
+  </style>
 </head>
 <body>
+
+<div id="uploadContainer">
+  <label><strong>Upload background image:</strong></label><br>
+  <input type="file" id="bgUpload" accept="image/*">
+</div>
+
 <button id="wakeLockButton">Enable Wake Lock</button>
+
 <script src="script5.js"></script>
+<script>
+  const uploadInput = document.getElementById('bgUpload');
+
+  uploadInput.addEventListener('change', function () {
+    const file = this.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      document.body.style.backgroundImage = `url('${e.target.result}')`;
+    };
+    reader.readAsDataURL(file);
+  });
+</script>
+
 </body>
 </html>
