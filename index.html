@@ -56,9 +56,49 @@
       margin-top: 6px;
       width: 100%;
     }
+  
+
+    #futuristicClock {
+      position: fixed;
+      top: 90px;
+      right: 24px;
+      z-index: 1000;
+      padding: 16px 22px;
+      border: 1px solid rgba(120, 255, 255, 0.6);
+      border-radius: 14px;
+      background: linear-gradient(145deg, rgba(6, 18, 38, 0.68), rgba(7, 48, 60, 0.58));
+      box-shadow: 0 0 12px rgba(0, 247, 255, 0.45), inset 0 0 16px rgba(92, 233, 255, 0.2);
+      backdrop-filter: blur(6px);
+      color: #d9fbff;
+      text-align: right;
+      min-width: 220px;
+    }
+
+    #clockTime {
+      font-size: 2rem;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+      color: #b3f9ff;
+      text-shadow: 0 0 8px rgba(77, 246, 255, 0.8);
+      font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+    }
+
+    #clockDate {
+      margin-top: 6px;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      color: #e7ffff;
+      text-transform: uppercase;
+      font-family: "Rajdhani", "Segoe UI", Arial, sans-serif;
+    }
   </style>
 </head>
 <body>
+
+<div id="futuristicClock" aria-live="polite">
+  <div id="clockTime">--:--:--</div>
+  <div id="clockDate">Loading Date...</div>
+</div>
 
 <button id="wakeLockButton">Enable Wake Lock</button>
 
@@ -72,6 +112,32 @@
     const uploadInput = document.getElementById('bgUpload');
     const uploadContainer = document.getElementById('uploadContainer');
     const wakeLockButton = document.getElementById('wakeLockButton');
+    const clockTime = document.getElementById('clockTime');
+    const clockDate = document.getElementById('clockDate');
+
+
+    function updateClock() {
+      const now = new Date();
+      const timeText = now.toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      });
+
+      const dateText = now.toLocaleDateString([], {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+
+      clockTime.textContent = timeText;
+      clockDate.textContent = dateText;
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
 
     uploadInput.addEventListener('change', function () {
       const file = this.files[0];
