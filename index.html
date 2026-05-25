@@ -63,33 +63,45 @@
       top: 90px;
       right: 24px;
       z-index: 1000;
+      min-width: 260px;
       padding: 16px 22px;
-      border: 1px solid rgba(120, 255, 255, 0.6);
-      border-radius: 14px;
-      background: linear-gradient(145deg, rgba(6, 18, 38, 0.68), rgba(7, 48, 60, 0.58));
-      box-shadow: 0 0 12px rgba(0, 247, 255, 0.45), inset 0 0 16px rgba(92, 233, 255, 0.2);
-      backdrop-filter: blur(6px);
-      color: #d9fbff;
+      border: 1px solid rgba(250, 197, 28, 0.45);
+      border-radius: 6px;
+      background: linear-gradient(180deg, rgba(8, 8, 8, 0.92), rgba(18, 18, 18, 0.84));
+      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.65), 0 0 24px rgba(0, 0, 0, 0.85), inset 0 0 18px rgba(250, 197, 28, 0.12);
+      color: #f5c542;
       text-align: right;
-      min-width: 220px;
+      backdrop-filter: blur(2px);
+    }
+
+    #futuristicClock::before {
+      content: "GOTHAM TIME";
+      display: block;
+      margin-bottom: 8px;
+      color: rgba(250, 197, 28, 0.75);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      font-weight: 700;
+      text-align: left;
+      font-family: "Arial Black", "Segoe UI", Arial, sans-serif;
     }
 
     #clockTime {
-      font-size: 2rem;
-      letter-spacing: 0.14em;
-      font-weight: 700;
-      color: #b3f9ff;
-      text-shadow: 0 0 8px rgba(77, 246, 255, 0.8);
-      font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+      font-size: 2.2rem;
+      letter-spacing: 0.12em;
+      font-weight: 800;
+      color: #ffd45c;
+      text-shadow: 0 0 8px rgba(250, 197, 28, 0.55), 0 0 22px rgba(0, 0, 0, 0.95);
+      font-family: "Impact", "Arial Black", "Segoe UI", sans-serif;
     }
 
     #clockDate {
-      margin-top: 6px;
-      font-size: 0.95rem;
-      letter-spacing: 0.08em;
-      color: #e7ffff;
+      margin-top: 7px;
+      font-size: 0.85rem;
+      letter-spacing: 0.11em;
+      color: #e9e9e9;
       text-transform: uppercase;
-      font-family: "Rajdhani", "Segoe UI", Arial, sans-serif;
+      font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
     }
   </style>
 </head>
